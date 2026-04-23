@@ -10,6 +10,7 @@ Table of Contents
 * [App Store Listing Generator](./App Store Listing Generator/README-en.md)
 * [Marketing Advisor](./Marketing Advisor/README-en.md)
 * [Basic Pages Generator](./Basic Pages Generator/README-en.md)
+* [Brand Identity Generator](./Brand Identity Generator/README-en.md)
 
 IT
 
@@ -21,3 +22,4 @@ Indice
 * [App Store Listing Generator](./App Store Listing Generator/README-it.md)
 * [Marketing Advisor](./Marketing Advisor/README-it.md)
 * [Basic Pages Generator](./Basic Pages Generator/README-it.md)
+* [Brand Identity Generator](./Brand Identity Generator/README-it.md)
