@@ -103,3 +103,4 @@ Claude analizzerà la codebase e genererà `app-store-listing.md` nella root del
 - Il file `app-store-listing.md` è pensato per essere versionato insieme al codice, così da tenere traccia delle variazioni dei testi tra una release e l'altra.
 - Keywords e descrizione vengono scritti dal comando già ottimizzati per ASO (App Store Optimization), ma è buona pratica rivederli con dati reali di ricerca.
 - Se l'app usa StoreKit, la sezione In-App Purchase viene popolata automaticamente con i prodotti trovati nel codice.
+ 

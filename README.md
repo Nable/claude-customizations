@@ -6,11 +6,17 @@ A repository for storing customizations for Claude.
 
 Table of Contents
 
-* [Debt Tracker Pipeline](./Debt Tracker Pipeline/README-en.md)
-* [App Store Listing Generator](./App Store Listing Generator/README-en.md)
-* [Marketing Advisor](./Marketing Advisor/README-en.md)
-* [Basic Pages Generator](./Basic Pages Generator/README-en.md)
-* [Brand Identity Generator](./Brand Identity Generator/README-en.md)
+Commands
+
+* [App Store Listing Generator](./commands/App%20Store%20Listing%20Generator/README-en.md)
+* [Basic Pages Generator](./commands/Basic%20Pages%20Generator/README-en.md)
+* [Brand Identity Generator](./commands/Brand%20Identity%20Generator/README-en.md)
+* [Debt Tracker Pipeline](./commands/Debt%20Tracker%20Pipeline/README-en.md)
+* [Marketing Advisor](./commands/Marketing%20Advisor/README-en.md)
+
+Skills
+
+* [App Store Pages](./skills/appstore-pages/SKILL.md)
 
 IT
 
@@ -18,8 +24,14 @@ Repository finalizzato alla conservazione delle personalizzazioni per Claude.
 
 Indice
 
-* [Debt Tracker Pipeline](./Debt Tracker Pipeline/README-it.md)
-* [App Store Listing Generator](./App Store Listing Generator/README-it.md)
-* [Marketing Advisor](./Marketing Advisor/README-it.md)
-* [Basic Pages Generator](./Basic Pages Generator/README-it.md)
-* [Brand Identity Generator](./Brand Identity Generator/README-it.md)
+Comandi
+
+* [App Store Listing Generator](./commands/App%20Store%20Listing%20Generator/README-it.md)
+* [Basic Pages Generator](./commands/Basic%20Pages%20Generator/README-it.md)
+* [Brand Identity Generator](./commands/Brand%20Identity%20Generator/README-it.md)
+* [Debt Tracker Pipeline](./commands/Debt%20Tracker%20Pipeline/README-it.md)
+* [Marketing Advisor](./commands/Marketing%20Advisor/README-it.md)
+
+Skill
+
+* [App Store Pages](./skills/appstore-pages/SKILL.md)
