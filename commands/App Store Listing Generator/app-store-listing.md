@@ -1,6 +1,12 @@
+---
+description: Genera app-store-listing.md con tutti i metadati per App Store Connect (nome, descrizione, keywords ASO, valutazione età, checklist)
+---
+
 Analizza il progetto iOS/macOS e genera un file `app-store-listing.md` nella root del progetto con tutte le informazioni necessarie per la pubblicazione su App Store Connect.
 
 Inizia identificando il tipo di progetto: leggi `Info.plist`, il file `.xcodeproj` o `Package.swift`, `CHANGELOG`, `README`, e scorri le schermate principali (SwiftUI views, Storyboard, ecc.) per capire cosa fa l'app.
+
+Nei progetti Xcode 13+ con `GENERATE_INFOPLIST_FILE = YES` non esiste un `Info.plist` fisico: le chiavi (`CFBundle*`, `NS*UsageDescription`, versioni) stanno nei build settings di `project.pbxproj` come `INFOPLIST_KEY_*`, `MARKETING_VERSION` e `CURRENT_PROJECT_VERSION`.
 
 ---
 
@@ -198,5 +204,5 @@ Lingua principale rilevata: {lingua_principale}
 - Per la valutazione età: analizza capability, entitlement e funzionalità dell'app; in assenza di contenuti espliciti usa "4+" come default.
 - Se l'app ha `StoreKit`, `SKPaymentQueue` o `Product` (StoreKit 2), includi la sezione In-App Purchase elencando i prodotti trovati nel codice.
 - Le note per la revisione devono includere: credenziali di test se l'app richiede login (usa valori placeholder), spiegazione di funzionalità non ovvie, eventuali permission richieste con motivazione.
-- Conta sempre i caratteri e segnala se un campo supera il limite Apple.
+- Conta sempre i caratteri e segnala se un campo supera il limite Apple. **Non contare a occhio**: verifica ogni campo con la shell (`printf '%s' "testo" | wc -c`) prima di scrivere il conteggio nel file.
 - Se non riesci a determinare un valore, usa `[DA COMPILARE]` — non inventare.

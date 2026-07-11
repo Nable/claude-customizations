@@ -1,6 +1,10 @@
+---
+description: Genera marketing.md con strategia di lancio, post pronti per ogni piattaforma, ASO e piano outreach
+---
+
 Analizza il progetto e genera un file `marketing.md` nella root con una strategia di marketing completa, pronta all'uso.
 
-Se esiste `app-store-listing.md` nella root, leggilo per recuperare nome, descrizione, categoria e funzionalità dell'app. Altrimenti ricavali da `Info.plist`, `README`, sorgenti e asset.
+Se esiste `app-store-listing.md` nella root, leggilo per recuperare nome, descrizione, categoria e funzionalità dell'app. Altrimenti ricavali da `Info.plist` (o dalle chiavi `INFOPLIST_KEY_*` in `project.pbxproj` nei progetti Xcode 13+ senza Info.plist fisico), `README`, sorgenti e asset.
 
 Identifica: nome app, funzionalità principali (max 5), target audience, categoria, modello di prezzo (free/paid/freemium/subscription), piattaforme supportate.
 

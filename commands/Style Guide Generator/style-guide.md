@@ -1,3 +1,7 @@
+---
+description: Estrae lo stile visivo dell'app e genera style-guide/index.html + style-tokens.json da usare come input per altri contenuti
+---
+
 Analizza il progetto e genera una style guide visiva nella cartella dedicata `style-guide/` nella root del progetto:
 
 - **`style-guide/index.html`** — pagina HTML self-contained che documenta e **mostra** lo stile grafico dell'app
@@ -95,5 +99,6 @@ Adatta le chiavi ai valori realmente trovati: non lasciare sezioni fittizie. Se 
 - **Mai inventare valori.** Ogni token viene dal progetto (`source: <file>`) o è dedotto coerentemente dalla palette trovata (`source: derived`). Se non rilevabile → `null` + raccomandazione, mai un valore plausibile spacciato per reale.
 - **HTML e JSON devono essere coerenti**: stessi valori, stessi nomi dei token.
 - I colori con contrasto insufficiente vanno segnalati nella pagina, **non corretti in silenzio**: la style guide documenta lo stato reale del progetto.
+- **I rapporti di contrasto WCAG vanno calcolati, non stimati**: usa uno script (formula della luminanza relativa WCAG) via shell per ogni coppia testo/sfondo riportata.
 - La lingua della pagina segue quella del progetto (rilevala da `CFBundleDevelopmentRegion`/`INFOPLIST_KEY_*`, cartelle `*.lproj`, String Catalogs `.xcstrings`; altrimenti inglese).
 - Al termine stampa: percorso dei file creati, numero di colori/font/token estratti, ed eventuali categorie non rilevate con la relativa raccomandazione.

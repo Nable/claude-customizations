@@ -58,7 +58,7 @@ Copia il file del comando:
 cp marketing-advisor.md ~/.claude/commands/marketing-advisor.md
 ```
 
-Il comando sarà disponibile in Claude Code come `/project:marketing-advisor`.
+Il comando sarà disponibile in Claude Code come `/marketing-advisor`.
 
 ---
 
@@ -67,13 +67,13 @@ Il comando sarà disponibile in Claude Code come `/project:marketing-advisor`.
 Apri il progetto iOS/macOS in Claude Code ed esegui:
 
 ```
-/project:marketing-advisor
+/marketing-advisor
 ```
 
 ### Workflow consigliato
 
-1. Esegui prima `/project:app-store-listing` — il Marketing Advisor lo legge per capire meglio l'app
-2. Esegui `/project:marketing-advisor`
+1. Esegui prima `/app-store-listing` — il Marketing Advisor lo legge per capire meglio l'app
+2. Esegui `/marketing-advisor`
 3. Revisiona i post e personalizza tono e dettagli
 4. Usa la checklist come guida per il lancio
 

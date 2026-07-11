@@ -53,7 +53,7 @@ Copy the command file:
 cp style-guide.md ~/.claude/commands/style-guide.md
 ```
 
-The command will be available in Claude Code as `/project:style-guide`.
+The command will be available in Claude Code as `/style-guide`.
 
 ---
 
@@ -62,7 +62,7 @@ The command will be available in Claude Code as `/project:style-guide`.
 Open the project in Claude Code and run:
 
 ```
-/project:style-guide
+/style-guide
 ```
 
 ### Typical use of the output

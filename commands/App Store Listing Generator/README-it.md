@@ -74,7 +74,7 @@ Copia il file del comando:
 cp app-store-listing.md ~/.claude/commands/app-store-listing.md
 ```
 
-Il comando sarà disponibile in Claude Code come `/project:app-store-listing`.
+Il comando sarà disponibile in Claude Code come `/app-store-listing`.
 
 ---
 
@@ -83,14 +83,14 @@ Il comando sarà disponibile in Claude Code come `/project:app-store-listing`.
 Apri il progetto iOS/macOS in Claude Code ed esegui:
 
 ```
-/project:app-store-listing
+/app-store-listing
 ```
 
 Claude analizzerà la codebase e genererà `app-store-listing.md` nella root del progetto.
 
 ### Workflow consigliato
 
-1. Esegui `/project:app-store-listing` dopo aver completato le funzionalità della release
+1. Esegui `/app-store-listing` dopo aver completato le funzionalità della release
 2. Apri `app-store-listing.md` e compila i campi `[DA COMPILARE]` (URL, prezzi, contatti)
 3. Verifica i conteggi dei caratteri per nome, sottotitolo e keywords
 4. Copia i testi direttamente in App Store Connect

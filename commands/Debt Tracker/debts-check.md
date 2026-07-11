@@ -1,6 +1,10 @@
+---
+description: Analizza la codebase e genera il report del debito tecnico (debts.md + debts.json)
+---
+
 Analizza la codebase e genera due file nella root del progetto: `debts.md` e `debts.json`.
 
-Individua prima il tipo di progetto e stack. Se rilevi file Swift, ObjC, Xcode, entitlements o Info.plist, includi anche l'analisi **Apple Guidelines** (sezione 11).
+Individua prima il tipo di progetto e stack. Se rilevi file Swift, ObjC, Xcode, entitlements o Info.plist (o chiavi `INFOPLIST_KEY_*` in `project.pbxproj` — progetti Xcode 13+ senza Info.plist fisico), includi anche l'analisi **Apple Guidelines** (sezione 11).
 
 Esamina sistematicamente ogni file cercando problemi **concreti** (con percorso e righe) nelle categorie:
 
@@ -35,7 +39,7 @@ Il file include: header con data/progetto/stack, tabella sommario per categoria 
 
 ---
 
-### Output 2 — `debts.json` (per Cowork/dashboard)
+### Output 2 — `debts.json` (machine-readable, per dashboard e tool esterni)
 
 Struttura compatta, niente markdown, niente emoji nel testo:
 
