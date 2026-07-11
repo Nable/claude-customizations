@@ -27,8 +27,8 @@ These patterns recur across all commands/skills and should be preserved in any n
 
 - **Extract from the target project, never invent.** Values (app name, colors, icon, permissions, features) must come from real files — `Info.plist`, `project.pbxproj`, `Package.swift`, `Assets.xcassets`, `AndroidManifest.xml`, UI source. If a value can't be found, either search harder, ask the user, or emit an explicit placeholder — do not fabricate.
 - **Explicit placeholders for the unknowable.** Use `[DA COMPILARE]` (Italian commands) / `[TO BE FILLED]` (English docs) for things not derivable from code: URLs, prices, contact emails, developer name.
-- **Output goes into the target project**, typically the project root (`app-store-listing.md`, `brand-identity.md`, `debts.md` + `debts.json`) or `docs/` (`privacy.html`, `support.html`). Skills like `appstore-pages` produce standalone HTML with all CSS inline and images embedded as base64 — no external CDNs or relative asset paths.
-- **Cross-artifact consistency.** When a command emits paired files (e.g. `debts.md` + `debts.json`), they must share the same IDs and data. When output feeds another command (brand identity reads `app-store-listing.md` / `marketing.md` if present), respect that dependency chain.
+- **Output goes into the target project**, typically the project root (`app-store-listing.md`, `debts.md` + `debts.json`) or a dedicated folder (`web-pages/`, `style-guide/`). Generated HTML is always standalone — all CSS inline, images embedded as base64, no external CDNs or relative asset paths.
+- **Cross-artifact consistency.** When a command emits paired files (e.g. `debts.md` + `debts.json`, `index.html` + `style-tokens.json`), they must share the same IDs and data. When output feeds another command (e.g. the marketing advisor reads `app-store-listing.md` if present), respect that dependency chain.
 - **Apple/App Store domain.** Character limits (name 30, subtitle 30, promo 170, description/notes 4000), ASO optimization, age-rating logic, and privacy/permission mapping are load-bearing details — verify them against Apple's current rules rather than trusting memory when editing.
 
 ## Editing guidance
