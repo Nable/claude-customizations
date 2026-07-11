@@ -21,6 +21,8 @@ Non inventare né usare colori di default: se non trovi un valore, cerca più a 
 
 > "Qual è la email di supporto da inserire nelle pagine? (es. support@tuaapp.com)"
 
+Nella stessa occasione chiedi (opzionale) il **dominio** dove le pagine saranno pubblicate (es. `https://tuaapp.com`): serve ai comandi a valle (es. `/app-store-listing`) per compilare Support URL e Privacy URL. Se l'utente non lo sa, salva `domain: null` e prosegui.
+
 Non procedere finché non hai la email.
 
 ---
@@ -28,6 +30,15 @@ Non procedere finché non hai la email.
 ## Step 2 — Estrai OBBLIGATORIAMENTE la grafica dal progetto
 
 Questi elementi **devono** venire dal progetto. Non usare valori inventati o di esempio.
+
+### 2-pre — Riusa la style guide se esiste
+
+Se esiste `style-guide/style-tokens.json` (generato dal comando `/style-guide`):
+1. Controlla il campo `generated`: se più vecchio di 60 giorni, avvisa l'utente e chiedi se riusarlo o ri-estrarre dal codice.
+2. Se lo riusi: mappa i colori sulle variabili richieste in 2c usando il campo `usage` di ogni token (`--bg`, `--card`, `--accent1`, ecc.) e prendi il font primario dalla sezione `typography`.
+3. In quel caso **salta l'estrazione colori (2c)**. Nome app (2a), icona (2b) e lingua (2d) vanno comunque ricavati dal progetto.
+
+Così le pagine restano coerenti con la style guide e con gli altri artefatti che la usano.
 
 ### 2a — Nome app
 Cerca in ordine:
@@ -212,6 +223,7 @@ I nuovi file generati sovrascrivono quelli eventualmente migrati. Se l'utente in
   "generated": "YYYY-MM-DD",
   "language": "it | en",
   "email": "<email di supporto>",
+  "domain": "https://<dominio di pubblicazione> | null",
   "platform": "iOS | macOS",
   "minOSVersion": "<versione minima>",
   "colors": {

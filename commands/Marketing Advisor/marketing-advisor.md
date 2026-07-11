@@ -289,5 +289,6 @@ Keyword principali da presidiare (ad alta rilevanza per questa app):
 - Reddit: mai promuovere direttamente senza valore. I post "Ask for feedback" e quelli educativi sono sempre meglio accolti dei post promozionali.
 - Product Hunt: il commento del founder è cruciale — deve ringraziare, spiegare la genesi dell'app e chiedere feedback specifico.
 - Hacker News: zero hype, zero aggettivi come "amazing" o "revolutionary". Solo fatti e tecnica.
-- Se non riesci a determinare un dato (es. numero iscritti di un subreddit), usa una stima ragionata e indicala come tale.
+- **Dati verificabili → ricerca web.** Se la ricerca web è disponibile nella sessione, usala per: (a) il numero reale di iscritti di ogni subreddit consigliato, (b) le regole correnti di self-promotion di quei subreddit (cerca "r/<nome> rules self promotion" — sbagliarle costa il ban), (c) i termini di ricerca realmente usati nel settore prima di proporre le keyword ASO. Riporta i dati con la data di verifica.
+- Solo se la ricerca web non è disponibile: usa una stima ragionata e indicala esplicitamente come tale.
 - Non inventare nomi di creator specifici: usa categorie ("YouTuber di produttività con 100K+ iscritti") invece di nomi propri.

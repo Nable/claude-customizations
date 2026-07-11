@@ -199,6 +199,7 @@ Lingua principale rilevata: {lingua_principale}
 
 ### Regole
 
+- **URL e contatti da `web-pages/`**: se esiste la cartella `web-pages/` (generata dalla skill appstore-pages), leggi `web-pages/meta.json` — usa `email` come email di supporto e, se `domain` è valorizzato, compila Support URL (`<domain>/`) e Privacy Policy URL (`<domain>/privacy.html`). Se `domain` è `null`, chiedi all'utente il dominio di pubblicazione prima di ripiegare su `[DA COMPILARE]`.
 - Scrivi nome, sottotitolo, testo promozionale e keywords **già ottimizzati per ASO** (App Store Optimization): usa termini di ricerca rilevanti, evita la ripetizione del nome app nelle keywords.
 - La descrizione deve aprire con il beneficio principale (primo paragrafo = hook), poi elencare le funzionalità, poi chiudere con una CTA.
 - Per la valutazione età: analizza capability, entitlement e funzionalità dell'app; in assenza di contenuti espliciti usa "4+" come default.
