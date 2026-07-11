@@ -19,11 +19,19 @@ for f in "$REPO_DIR"/commands/*/*.md; do
   echo "  comando → /${name%.md}"
 done
 
-# Skill: un symlink per ogni cartella skill
+# Skill: un symlink per ogni cartella skill.
+# Se la destinazione è una directory reale (installazione precedente via copia),
+# ln -sfn creerebbe il link DENTRO di essa: va rimossa prima.
 for d in "$REPO_DIR"/skills/*/; do
   name="$(basename "$d")"
-  ln -sfn "${d%/}" "$CLAUDE_DIR/skills/$name"
-  echo "  skill   → $name"
+  dest="$CLAUDE_DIR/skills/$name"
+  if [ -d "$dest" ] && [ ! -L "$dest" ]; then
+    echo "  skill   → $name (rimossa installazione precedente non-symlink)"
+    rm -rf "$dest"
+  else
+    echo "  skill   → $name"
+  fi
+  ln -sfn "${d%/}" "$dest"
 done
 
 echo
