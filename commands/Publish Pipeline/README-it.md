@@ -11,7 +11,7 @@ Un comando custom per Claude Code che orchestra l'intera pipeline di pubblicazio
 ────────────────────────────────────────────────
 Step 0  Chiede una sola volta: email, dominio, sviluppatore
    1    /style-guide        → style-guide/  (stile + tokens)
-   2    skill appstore-pages → web-pages/   (usa i tokens)
+   2    /appstore-pages     → web-pages/   (usa i tokens)
    3    /app-store-listing  → app-store-listing.md (usa meta.json)
    4    /marketing-advisor  → marketing.md  (usa il listing)
    5    /press-kit          → press-kit/    (riusa tutto)
@@ -43,7 +43,7 @@ cp publish.md ~/.claude/commands/publish.md
 
 Il comando sarà disponibile in Claude Code come `/publish`.
 
-**Prerequisito:** gli altri comandi del repository e la skill appstore-pages devono essere installati (con `./install.sh` lo sono automaticamente).
+**Prerequisito:** gli altri comandi del repository devono essere installati (con `./install.sh` lo sono automaticamente).
 
 ---
 

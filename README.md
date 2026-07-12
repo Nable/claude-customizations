@@ -17,6 +17,7 @@ Invoke a command from the Claude Code CLI with `/<name>`.
 | Command | Description | Invocation |
 |---------|-------------|------------|
 | [App Store Listing Generator](./commands/App%20Store%20Listing%20Generator/README-en.md) | Analyses an iOS/macOS project and generates `app-store-listing.md` with all the App Store Connect metadata: ASO-optimised name, subtitle, description and keywords, age rating, screenshots plan, pre-submission checklist. | `/app-store-listing` |
+| [App Store Pages Generator](./commands/App%20Store%20Pages%20Generator/README-en.md) | Generates the App Store support and privacy HTML pages (`web-pages/index.html`, `privacy.html`, `meta.json`) using the project's real colours, icon and features — reusing the style guide tokens when present. | `/appstore-pages` |
 | [Debt Tracker](./commands/Debt%20Tracker/README-en.md) | Scans the codebase for concrete technical debt (quality, architecture, security, performance, Apple guidelines…) and generates `debts.md` for developers plus `debts.json` for dashboards. | `/debts-check` |
 | [Marketing Advisor](./commands/Marketing%20Advisor/README-en.md) | Analyses the project (reading `app-store-listing.md` if present) and generates `marketing.md` with a ready-to-use marketing strategy. | `/marketing-advisor` |
 | [Press Kit Generator](./commands/Press%20Kit%20Generator/README-en.md) | Generates `press-kit/` with a self-contained HTML press page and copy-paste texts: fact sheet, 50/100/250-word boilerplates (IT+EN), features, assets, press contacts. | `/press-kit` |
@@ -26,11 +27,7 @@ Invoke a command from the Claude Code CLI with `/<name>`.
 
 ## Skills
 
-Skills are triggered automatically when your request matches their description — no slash command needed.
-
-| Skill | Description | Invocation |
-|-------|-------------|------------|
-| [App Store Pages](./skills/appstore-pages/SKILL.md) | Generates the App Store support and privacy HTML pages (`web-pages/index.html`, `web-pages/privacy.html`, `web-pages/meta.json`) using the project's real colours, icon and features. | Ask e.g. *"create the support page for my app"* or mention "App Store pages", "privacy page" |
+Skills (auto-triggered by natural language, installed under `skills/`) — none at the moment; the folder and `install.sh` are ready for future ones.
 
 ---
 
@@ -51,6 +48,7 @@ Invoca un comando dalla CLI di Claude Code con `/<nome>`.
 | Comando | Descrizione | Invocazione |
 |---------|-------------|-------------|
 | [App Store Listing Generator](./commands/App%20Store%20Listing%20Generator/README-it.md) | Analizza un progetto iOS/macOS e genera `app-store-listing.md` con tutti i metadati per App Store Connect: nome, sottotitolo, descrizione e keywords ottimizzati ASO, valutazione età, piano screenshot, checklist pre-invio. | `/app-store-listing` |
+| [App Store Pages Generator](./commands/App%20Store%20Pages%20Generator/README-it.md) | Genera le pagine HTML di supporto e privacy per l'App Store (`web-pages/index.html`, `privacy.html`, `meta.json`) con colori, icona e funzionalità reali del progetto — riusando i tokens della style guide se presenti. | `/appstore-pages` |
 | [Debt Tracker](./commands/Debt%20Tracker/README-it.md) | Scansiona la codebase alla ricerca di debito tecnico concreto (qualità, architettura, sicurezza, performance, linee guida Apple…) e genera `debts.md` per gli sviluppatori più `debts.json` per le dashboard. | `/debts-check` |
 | [Marketing Advisor](./commands/Marketing%20Advisor/README-it.md) | Analizza il progetto (leggendo `app-store-listing.md` se presente) e genera `marketing.md` con una strategia di marketing pronta all'uso. | `/marketing-advisor` |
 | [Press Kit Generator](./commands/Press%20Kit%20Generator/README-it.md) | Genera `press-kit/` con una pagina stampa HTML self-contained e testi copia-incolla: fact sheet, boilerplate da 50/100/250 parole (IT+EN), feature, asset, contatti press. | `/press-kit` |
@@ -60,8 +58,4 @@ Invoca un comando dalla CLI di Claude Code con `/<nome>`.
 
 ## Skill
 
-Le skill si attivano automaticamente quando la richiesta corrisponde alla loro descrizione — non serve uno slash command.
-
-| Skill | Descrizione | Invocazione |
-|-------|-------------|-------------|
-| [App Store Pages](./skills/appstore-pages/SKILL.md) | Genera le pagine HTML di supporto e privacy per l'App Store (`web-pages/index.html`, `web-pages/privacy.html`, `web-pages/meta.json`) usando colori, icona e funzionalità reali del progetto. | Chiedi ad es. *"crea la pagina di supporto per la mia app"* o menziona "pagina supporto", "privacy page" |
+Skill (attivazione automatica da linguaggio naturale, installate da `skills/`) — nessuna al momento; la cartella e `install.sh` sono pronti per quelle future.

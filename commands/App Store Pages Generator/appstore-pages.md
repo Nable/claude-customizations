@@ -1,6 +1,5 @@
 ---
-name: appstore-pages
-description: Genera le pagine HTML per l'App Store (support e privacy) per app iOS e macOS. Usa questa skill ogni volta che l'utente vuole creare una pagina di supporto o privacy per la sua app, o quando menziona "App Store pages", "support page", "privacy page", "pagina supporto", "pagina privacy", "Apple Store pages" o simili. La skill produce due file: index.html (support) e privacy.html, più un meta.json, tutti nella cartella dedicata `web-pages/` del progetto. Estrae automaticamente la grafica dal progetto (colori, icona, nome app) e chiede la email di contatto.
+description: Genera le pagine HTML support e privacy per l'App Store in web-pages/ (index.html, privacy.html, meta.json) con la grafica reale del progetto
 ---
 
 # App Store Pages — Support & Privacy

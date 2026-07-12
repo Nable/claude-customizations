@@ -23,6 +23,7 @@ done
 # Se la destinazione è una directory reale (installazione precedente via copia),
 # ln -sfn creerebbe il link DENTRO di essa: va rimossa prima.
 for d in "$REPO_DIR"/skills/*/; do
+  [ -d "$d" ] || continue   # nessuna skill presente: glob non espanso
   name="$(basename "$d")"
   dest="$CLAUDE_DIR/skills/$name"
   if [ -d "$dest" ] && [ ! -L "$dest" ]; then
