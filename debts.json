@@ -1,0 +1,136 @@
+{
+  "generated": "2026-07-13",
+  "project": "claude-customizations",
+  "stack": ["Markdown prompts (Claude Code commands)", "Bash"],
+  "isApple": false,
+  "summary": {
+    "critical": 0,
+    "high": 3,
+    "medium": 4,
+    "low": 4,
+    "total": 11
+  },
+  "debts": [
+    {
+      "id": "DEBT-001",
+      "priority": "high",
+      "category": "documentation",
+      "title": "Workflow del Press Kit README in contraddizione con l'ordine della pipeline",
+      "description": "Il 'Recommended workflow' indica /app-store-listing -> /marketing-advisor -> /style-guide -> /press-kit, in contrasto con l'ordine canonico /style-guide -> /appstore-pages -> /app-store-listing -> /marketing-advisor -> /press-kit documentato in publish.md, nei README della Publish Pipeline e in CLAUDE.md; manca inoltre la fase /appstore-pages.",
+      "file": "commands/Press Kit Generator/README-en.md",
+      "lines": "53-58",
+      "impact": "Chi segue il README esegue la style guide dopo il listing: /appstore-pages non riusa i token e /app-store-listing non trova web-pages/meta.json, perdendo il riuso di email e URL. Stesso problema in README-it.md righe 53-58.",
+      "solution": "Allineare il workflow di entrambi i README (EN e IT) all'ordine canonico a cinque fasi, o rimandare a /publish."
+    },
+    {
+      "id": "DEBT-002",
+      "priority": "high",
+      "category": "architecture",
+      "title": "Fallback di /publish punta a un percorso sbagliato nelle installazioni --project",
+      "description": "publish.md indica come fallback la lettura del comando da ~/.claude/commands/<nome>.md, ma nelle installazioni --project (Claude Code web) i comandi stanno in <progetto>/.claude/commands/ e la home non contiene nulla.",
+      "file": "commands/Publish Pipeline/publish.md",
+      "lines": "34",
+      "impact": "Proprio nell'ambiente per cui la modalita --project esiste (web, dove i symlink sono rotti), il fallback fallisce e la pipeline non recupera le istruzioni delle fasi.",
+      "solution": "Istruire a cercare prima in .claude/commands/ del progetto corrente, poi in ~/.claude/commands/."
+    },
+    {
+      "id": "DEBT-003",
+      "priority": "high",
+      "category": "documentation",
+      "title": "Tabella dimensioni screenshot Apple obsoleta",
+      "description": "La tabella 'Dimensioni richieste da Apple' indica 6,5 pollici obbligatorio in alternativa, 5,5 pollici consigliato e iPad 11 pollici obbligatorio. Le regole App Store Connect correnti (verificate 2026-07-13) richiedono solo il formato piu grande per famiglia: iPhone 6,9 pollici (1320x2868) e iPad 13 pollici (2064x2752); gli altri formati sono riscalati automaticamente.",
+      "file": "commands/App Store Listing Generator/app-store-listing.md",
+      "lines": "139-144",
+      "impact": "Ogni listing generato istruisce l'utente a produrre screenshot non piu necessari e presenta come obbligatori requisiti superati.",
+      "solution": "Aggiornare la tabella ai requisiti correnti e aggiungere l'istruzione di verificare i formati sulla pagina Apple 'Screenshot specifications' a ogni esecuzione."
+    },
+    {
+      "id": "DEBT-004",
+      "priority": "medium",
+      "category": "code-quality",
+      "title": "Riferimento al tool inesistente present_files",
+      "description": "Il comando /appstore-pages istruisce Claude a usare il tool present_files, che non esiste in Claude Code; e un residuo della vecchia versione skill.",
+      "file": "commands/App Store Pages Generator/appstore-pages.md",
+      "lines": "216",
+      "impact": "Istruzione non eseguibile: viene ignorata in silenzio o produce tentativi di invocazione inesistenti a fine generazione.",
+      "solution": "Sostituire con un'istruzione concreta (stampare percorsi dei file generati e riepilogo) o rimuovere la frase."
+    },
+    {
+      "id": "DEBT-005",
+      "priority": "medium",
+      "category": "error-handling",
+      "title": "install.sh ignora in silenzio gli argomenti sconosciuti",
+      "description": "Lo script gestisce solo il primo argomento --project: qualsiasi altro argomento (typo come --proj, --help, un path senza flag) viene ignorato e lo script procede con l'installazione symlink di default.",
+      "file": "install.sh",
+      "lines": "18-59",
+      "impact": "Un typo nella modalita --project installa symlink in ~/.claude/ invece di copiare nel progetto, senza messaggi: l'utente crede di aver aggiornato le copie del progetto.",
+      "solution": "Rifiutare con errore e usage ogni argomento non riconosciuto dopo il blocco --project."
+    },
+    {
+      "id": "DEBT-006",
+      "priority": "medium",
+      "category": "build-config",
+      "title": "install.sh non rimuove copie e symlink orfani",
+      "description": "Nessuna modalita rimuove gli artefatti orfani: un comando rinominato o eliminato resta come copia nei progetti (--project) o come symlink pendente in ~/.claude/commands/ (default); le skill rimosse dal repo non vengono ripulite (caso reale: ex-skill appstore-pages rimossa a mano).",
+      "file": "install.sh",
+      "lines": "32-73",
+      "impact": "I progetti target espongono comandi obsoleti con prompt vecchi mentre .customizations-rev dichiara una revisione aggiornata: lo stato reale non corrisponde al marker.",
+      "solution": "In entrambe le modalita eliminare prima i file/symlink riconducibili al repo che non hanno piu una sorgente (confronto con i basename correnti; rimozione dei symlink pendenti verso REPO_DIR)."
+    },
+    {
+      "id": "DEBT-007",
+      "priority": "medium",
+      "category": "documentation",
+      "title": "Comando cp di installazione manuale errato in tutti i README per-comando",
+      "description": "In tutte le 8 coppie README EN/IT l'installazione manuale e 'cp <nome-comando>.md ~/.claude/commands/...' subito dopo 'From the repository root': eseguito dalla root il cp fallisce perche i file stanno in commands/<Cartella>/.",
+      "file": "commands/Debt Tracker/README-en.md",
+      "lines": "55-58",
+      "impact": "Il comando copia-incolla documentato non funziona cosi com'e scritto (No such file or directory). Stesso pattern negli altri 15 README.",
+      "solution": "Usare il percorso completo quotato, es. cp \"commands/Debt Tracker/debts-check.md\" ~/.claude/commands/, in tutte le coppie EN/IT."
+    },
+    {
+      "id": "DEBT-008",
+      "priority": "low",
+      "category": "error-handling",
+      "title": "Loop dei comandi in install.sh senza guardia sul glob non espanso",
+      "description": "I loop 'for f in $REPO_DIR/commands/*/*.md' non gestiscono il glob non espanso: senza match, cp/ln fallirebbe sul pattern letterale con errore criptico e set -e interrompe. Il loop delle skill ha la guardia, quello dei comandi no.",
+      "file": "install.sh",
+      "lines": "32-68",
+      "impact": "Robustezza incoerente tra i due loop; un repo parziale o un refactoring delle cartelle produce un errore poco comprensibile.",
+      "solution": "Aggiungere '[ -f \"$f\" ] || continue' in testa a entrambi i loop dei comandi."
+    },
+    {
+      "id": "DEBT-009",
+      "priority": "low",
+      "category": "architecture",
+      "title": "Convenzione di adattamento lingua dichiarata ma non implementata in due generatori",
+      "description": "CLAUDE.md dichiara che i generatori rilevano italiano vs inglese e adattano l'output, ma app-store-listing.md e marketing-advisor.md hanno template interamente in italiano senza istruzioni di rilevamento lingua per la struttura del documento (a differenza di /release-notes e /appstore-pages).",
+      "file": "commands/App Store Listing Generator/app-store-listing.md",
+      "lines": "40-196",
+      "impact": "Su un progetto target in inglese questi comandi generano report con intestazioni italiane, contraddicendo la convenzione; vale anche per commands/Marketing Advisor/marketing-advisor.md righe 15-279.",
+      "solution": "Aggiungere ai due comandi l'istruzione di adattare il template alla lingua del progetto, oppure circoscrivere la frase in CLAUDE.md."
+    },
+    {
+      "id": "DEBT-010",
+      "priority": "low",
+      "category": "testing",
+      "title": "Nessuna verifica automatica di install.sh",
+      "description": "install.sh e l'unico eseguibile del repo ma non ha CI, shellcheck ne smoke test, nonostante supporti gia l'override CLAUDE_DIR utile a testarlo in isolamento.",
+      "file": "install.sh",
+      "lines": "1-92",
+      "impact": "Regressioni nelle due modalita di installazione si scoprono solo installando su un progetto reale.",
+      "solution": "GitHub Action con shellcheck e smoke test di entrambe le modalita (CLAUDE_DIR e progetto fittizio in dir temporanea) verificando i file risultanti."
+    },
+    {
+      "id": "DEBT-011",
+      "priority": "low",
+      "category": "code-quality",
+      "title": "Collisioni di nome comando non rilevate dall'installazione",
+      "description": "install.sh appiattisce commands/*/*.md in un unico namespace: due cartelle con lo stesso basename si sovrascrivono in silenzio (ultimo vince) sia nei symlink sia nelle copie --project.",
+      "file": "install.sh",
+      "lines": "32-73",
+      "impact": "Aggiungendo un comando con nome file gia usato, uno dei due sparirebbe dall'installazione senza segnalazione.",
+      "solution": "Tracciare i basename gia installati nel loop ed emettere errore o warning in caso di duplicato."
+    }
+  ]
+}
