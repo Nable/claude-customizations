@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What this repository is
 
-A personal library of **Claude Code customizations** — reusable slash commands and skills, not an application. There is no code to build, no test suite, and no lint step. Every deliverable is a Markdown prompt that is authored here, then installed into `~/.claude/commands/` or `~/.claude/skills/` (via `./install.sh`, which symlinks everything) to be used against *other* projects (mostly iOS/macOS/Android apps).
+A personal library of **Claude Code customizations** — reusable slash commands and skills, not an application. There is no code to build, no test suite, and no lint step. Every deliverable is a Markdown prompt that is authored here, then installed into `~/.claude/commands/` or `~/.claude/skills/` (via `./install.sh`, which symlinks everything) to be used against *other* projects (mostly iOS/macOS/Android apps). `./install.sh --project <path>` instead *copies* the commands into a target project's `.claude/commands/` (committed there, so they also work on Claude Code web, where symlinks to this repo would be broken); `.claude/commands/.customizations-rev` records which revision the copies came from.
 
 When working here you are editing **prompt content**, not software. "Correctness" means the instructions are unambiguous, self-consistent, and produce the documented output files.
 

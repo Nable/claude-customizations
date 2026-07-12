@@ -10,6 +10,12 @@ A repository for storing customizations for Claude Code: custom commands and ski
 ./install.sh
 ```
 
+**Use the commands from Claude Code web too** — copy them into an app project's repo (commit `.claude/` afterwards; re-run after a `git pull` to refresh the copies):
+
+```bash
+./install.sh --project ~/Workspaces/MyApp
+```
+
 ## Commands
 
 Invoke a command from the Claude Code CLI with `/<name>`.
@@ -39,6 +45,12 @@ Repository finalizzato alla conservazione delle personalizzazioni per Claude Cod
 
 ```bash
 ./install.sh
+```
+
+**Per usare i comandi anche da Claude Code web** — copiali nel repo di un progetto app (poi committa `.claude/`; rilancia dopo un `git pull` per riallineare le copie):
+
+```bash
+./install.sh --project ~/Workspaces/MiaApp
 ```
 
 ## Comandi
