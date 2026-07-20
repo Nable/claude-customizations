@@ -35,7 +35,7 @@ Questi elementi **devono** venire dal progetto. Non usare valori inventati o di 
 Se esiste `style-guide/style-tokens.json` (generato dal comando `/style-guide`):
 1. Controlla il campo `generated`: se più vecchio di 60 giorni, avvisa l'utente e chiedi se riusarlo o ri-estrarre dal codice.
 2. Se lo riusi: mappa i colori sulle variabili richieste in 2c usando il campo `usage` di ogni token (`--bg`, `--card`, `--accent1`, ecc.) e prendi il font primario dalla sezione `typography`.
-3. In quel caso **salta l'estrazione colori (2c)**. Nome app (2a), icona (2b) e lingua (2d) vanno comunque ricavati dal progetto.
+3. In quel caso **salta l'estrazione colori (2c)**. Nome app (2a) e icona (2b) vanno comunque ricavati dal progetto.
 
 Così le pagine restano coerenti con la style guide e con gli altri artefatti che la usano.
 
@@ -104,13 +104,8 @@ Se trovi solo alcuni colori, deduci gli altri in modo coerente con la palette tr
 **Contrasto (WCAG AA):** verifica che `--text` su `--bg` e su `--card` raggiunga almeno **4.5:1**, e `--muted` almeno **3:1**. Se un colore estratto non contrasta, schiarisci/scurisci la variante usata nelle pagine mantenendo la tonalità del progetto, e registra l'aggiustamento in `meta.json` → `adjustments`.
 
 ### 2d — Lingua
-Cerca in ordine:
-1. `Info.plist` → `CFBundleDevelopmentRegion` / `CFBundleLocalizations`, oppure `project.pbxproj` → `developmentRegion` / chiavi `INFOPLIST_KEY_*`
-2. Cartelle di localizzazione `*.lproj/` (es. `it.lproj`) e String Catalogs `*.xcstrings` (campo `sourceLanguage`)
-3. In fallback: lingua prevalente di stringhe UI e commenti nel codice
 
-- Se `it` o `Italian` → pagine in **italiano**
-- Altrimenti → pagine in **inglese**
+`index.html` e `privacy.html` sono **sempre in inglese**, indipendentemente dalla lingua del progetto o del suo pubblico. Non rilevare né chiedere la lingua per queste pagine: sono i testi legali/di supporto rivolti anche a Apple review e ad audience internazionale, quindi restano in inglese in ogni caso.
 
 ---
 
@@ -220,7 +215,7 @@ I nuovi file generati sovrascrivono quelli eventualmente migrati. Se l'utente in
 {
   "app": "<nome app>",
   "generated": "YYYY-MM-DD",
-  "language": "it | en",
+  "language": "en",
   "email": "<email di supporto>",
   "domain": "https://<dominio di pubblicazione> | null",
   "platform": "iOS | macOS",
@@ -246,3 +241,4 @@ Alla esecuzione successiva questo file permette di riusare `email` (Step 1) e co
 6. **Icona in base64** — mai path relativi.
 7. **Responsive** — media query per `max-width: 600px`.
 8. **Output sempre in `web-pages/`** — mai file sparsi nella root; se ne trovi di precedenti nella root, spostali (vedi Step 5a).
+9. **Lingua**: `index.html` e `privacy.html` sono sempre in inglese, a prescindere dalla lingua del progetto.

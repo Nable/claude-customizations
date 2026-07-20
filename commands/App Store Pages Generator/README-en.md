@@ -11,7 +11,7 @@ Claude Code (inside the project)
 ──────────────────────────────────────────────────
 Reuses style-guide/style-tokens.json when present
 (otherwise extracts colors from Assets.xcassets and code)
-Extracts icon (base64), name, language, features, permissions
+Extracts icon (base64), name, features, permissions
 Asks only for: support email (+ optional domain)
          ↓
 web-pages/index.html     (support: hero, features, FAQ, contact)
@@ -29,7 +29,7 @@ If `index.html`/`privacy.html`/`meta.json` from previous runs exist in the proje
 |------|---------|
 | `web-pages/index.html` | Self-contained support page: hero with icon, feature grid from real code, contextual FAQ, contact section |
 | `web-pages/privacy.html` | Tailored privacy policy: real permissions (`NS*UsageDescription`), actual network connections, truthful analytics section |
-| `web-pages/meta.json` | Email, domain, palette, language — reused by `/app-store-listing` and by regenerations |
+| `web-pages/meta.json` | Email, domain, palette — reused by `/app-store-listing` and by regenerations |
 
 ---
 
@@ -66,5 +66,5 @@ With the style guide already generated, the pages reuse the design tokens (no co
 
 - Standalone pages: inline CSS, base64 icon, no external dependencies, responsive.
 - Colors come only from the project; WCAG contrast is verified, with adjustments recorded in `meta.json`.
-- Language detected from the project (`.lproj`, `.xcstrings`, `INFOPLIST_KEY_*`): Italian or English.
+- Both pages are always in English, regardless of the project's language.
 - Supports Xcode 13+ projects without a physical `Info.plist`.

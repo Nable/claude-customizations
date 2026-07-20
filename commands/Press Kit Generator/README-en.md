@@ -65,3 +65,4 @@ The Press Kit Generator reuses artefacts from the previous commands: description
 - Boilerplate word counts are verified via shell, not estimated.
 - No invented data: prices, dates and URLs that can't be detected remain `[TO BE FILLED]`; no fictional press quotes.
 - The page is self-contained: inline CSS, base64 icon, no external dependencies.
+- The page is always in English; only the boilerplate section is bilingual (Italian + English).

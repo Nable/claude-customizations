@@ -51,4 +51,4 @@ Gli stessi contenuti in markdown puro (fact sheet come tabella, boilerplate nell
 - **Coerenza**: se `app-store-listing.md` esiste, le descrizioni devono derivare da quelle (adattate alla lunghezza), non essere riscritte da zero.
 - **Mai inventare**: prezzi, date, URL e recensioni non rilevabili → `[DA COMPILARE]`. Niente citazioni di stampa fittizie.
 - HTML e markdown devono contenere gli stessi testi.
-- La lingua della pagina segue quella del progetto; i boilerplate sono sempre bilingui (IT + EN).
+- **Lingua**: la pagina (hero, fact sheet, feature, contatti, tutto il resto) è **sempre in inglese**, a prescindere dalla lingua del progetto. Solo la sezione "Descrizioni boilerplate" è multilingua (italiano + inglese).

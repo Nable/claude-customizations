@@ -65,3 +65,4 @@ Il Press Kit Generator riusa gli artefatti dei comandi precedenti: descrizioni c
 - I conteggi parole dei boilerplate sono verificati via shell, non stimati.
 - Nessun dato inventato: prezzi, date e URL non rilevabili restano `[DA COMPILARE]`; niente citazioni di stampa fittizie.
 - La pagina è self-contained: CSS inline, icona in base64, nessuna dipendenza esterna.
+- La pagina è sempre in inglese; solo la sezione boilerplate è bilingue (italiano + inglese).

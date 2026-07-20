@@ -11,7 +11,7 @@ Claude Code (nel progetto)
 ──────────────────────────────────────────────────
 Riusa style-guide/style-tokens.json se presente
 (altrimenti estrae colori da Assets.xcassets e codice)
-Estrae icona (base64), nome, lingua, feature e permessi
+Estrae icona (base64), nome, feature e permessi
 Chiede solo: email di supporto (+ dominio, opzionale)
          ↓
 web-pages/index.html     (supporto: hero, feature, FAQ, contatti)
@@ -29,7 +29,7 @@ Se nella root del progetto esistono `index.html`/`privacy.html`/`meta.json` di e
 |------|-----------|
 | `web-pages/index.html` | Pagina di supporto self-contained: hero con icona, griglia feature dal codice reale, FAQ contestuali, sezione contatto |
 | `web-pages/privacy.html` | Privacy policy su misura: permessi reali (`NS*UsageDescription`), connessioni di rete effettive, sezione analytics veritiera |
-| `web-pages/meta.json` | Email, dominio, palette, lingua — riusati da `/app-store-listing` e dalle rigenerazioni |
+| `web-pages/meta.json` | Email, dominio, palette — riusati da `/app-store-listing` e dalle rigenerazioni |
 
 ---
 
@@ -66,5 +66,5 @@ Con la style guide già generata, le pagine riusano i design tokens (nessuna ri-
 
 - Pagine standalone: CSS inline, icona in base64, nessuna dipendenza esterna, responsive.
 - Colori sempre e solo dal progetto; contrasto WCAG verificato con aggiustamenti registrati in `meta.json`.
-- Lingua rilevata dal progetto (`.lproj`, `.xcstrings`, `INFOPLIST_KEY_*`): italiano o inglese.
+- Entrambe le pagine sono sempre in inglese, a prescindere dalla lingua del progetto.
 - Supporta progetti Xcode 13+ senza `Info.plist` fisico.
